@@ -15,13 +15,12 @@ let fruits = [{
     count: 11,
 }];
 
-let fruitsName = fruits.map(fruit => {
-    return fruit.name;
-});
-
-
-console.log(fruitsName);
-
+function f (arr, paramName){
+    return arr.map (item => {
+        return item[paramName];
+    });
+};
+f(fruits, "name");
 
 
 /*==========================================================*/
@@ -44,10 +43,12 @@ console.log(fruitsName);
     books:["Green Mile", "Lord of the Rings"],
  }];
 
- let readersBooks = readers.reduce((accBooks, book) =>{
-     if (book.books){
-         accBooks.push(book.books);
-     }
-     return accBooks;
- }, []);
- console.log(readersBooks)
+function fun (arr){
+    return arr.reduce ((acc, item) => {
+       if(item.books){ 
+        acc.push(item.books);
+        return acc;
+       }
+    },[]);
+};
+fun (readers);
